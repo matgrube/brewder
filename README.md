@@ -1,2 +1,0 @@
-# BrewDer
-App for homebrewers
