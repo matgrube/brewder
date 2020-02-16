@@ -1,12 +1,13 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import './components/navbar/navbar';
+import Navbar from './components/Navbar/Navbar';
+import Menu from './components/Menu/Menu';
 
 function App() {
   return (
     <div className="App">
-      <navbar />
+      <Navbar />
+      <Menu />
     </div>
   );
 }
