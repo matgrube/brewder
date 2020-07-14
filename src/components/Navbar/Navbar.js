@@ -22,6 +22,7 @@ const Wrapper = styled.div`
   height: 6vh;
   display: flex;
   flex-direction: row;
+  align-items: center;
   width: 100%;
   background-color: #001d4a;
   color: #c2d3cd;

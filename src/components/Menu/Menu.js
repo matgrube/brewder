@@ -1,17 +1,20 @@
 import React from 'react';
 import styled from 'styled-components';
 import Submenu from '../Submenu/Submenu';
-
+import { BrowserRouter as Router, Switch, Route, Link, } from 'react-router-dom';
 
 const Menu = () => {
+    const showSubmenu = () => {
+        console.log("Kliknięte");
+    }
     return (
         <Wrapper>
             <List>
-                <Item>Calc</Item>
-                <Item>Brewing</Item>
-                <Item>Fermentation</Item>
+                <Item onClick={showSubmenu}>Calc</Item>
+                <Item><Inactive>Brewing</Inactive></Item>
+                <Item><Inactive>Fermentation</Inactive></Item>
             </List>
-            <Submenu />
+            <Submenu/>
         </Wrapper>
     )
 }
@@ -38,13 +41,16 @@ const List = styled.div`
 `
 
 const Item = styled.li`
-  flex-grow: 1;
-  justify-content: space-between;
-  display: block; 
-  align-items: stretch;
-  width: 33%;
-  height: 100%;
-  text-align: center;
-  line-height: 6vh;
+    flex-grow: 1;
+    justify-content: space-between;
+    display: block; 
+    align-items: stretch;
+    width: 33%;
+    height: 100%;
+    text-align: center;     
+    line-height: 6vh;
+    cursor: pointer;
 `
-
+const Inactive = styled.span`
+    color: grey;
+`
