@@ -1,9 +1,11 @@
 import React from "react";
+import { LoginForm } from "../../compontents/loginForm/LoginForm";
+import {LoginRegisterLayout} from "../../layouts/loginRegisterLayout/LoginRegisterLayout";
 
 export const LoginPage: React.FC = () => {
   return (
-    <>
-      <h1>Login page</h1>
-    </>
+    <div className="loginPage">
+        <LoginRegisterLayout children={LoginForm} />
+    </div>
   )
 }
