@@ -7,18 +7,26 @@ export interface LoginFormProps {
     password: string;
 }
 
-export const LoginForm: React.FC<LoginFormProps> = ({
-    email,
-    password
-}) => {
+export const initialValues: LoginFormProps = {
+    email: "",
+    password: ""
+}
+
+export const LoginForm: React.FC<LoginFormProps> = () => {
     const handleSubmit = () => {
         console.log("Submit");
     }
     return (
         <div className="loginForm">
-            <Formik initialValues={{email, password}} onSubmit={handleSubmit} enableReinitialize={true}>
+            <Formik initialValues={initialValues} onSubmit={handleSubmit} enableReinitialize={true}>
                 <Form>
-                    <UserInput name="email" className="email" placeholder="E-mail" onChange={(e) => console.log(e)} label="Email" />
+                    <UserInput 
+                        name="email" 
+                        className="email" 
+                        placeholder="E-mail" 
+                        onChange={(e) => console.log(e)} 
+                        label="Email" 
+                    />
                 </Form>
             </Formik>
         </div>
