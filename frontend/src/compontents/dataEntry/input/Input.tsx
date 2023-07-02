@@ -1,87 +1,127 @@
 import React from "react";
 import { Input as AntInput } from "antd";
-import { SizeType } from "antd/lib/config-provider/SizeContext";
 import { UserOutlined, KeyOutlined } from "@ant-design/icons";
+import { SizeType } from "antd/lib/config-provider/SizeContext";
 
 export interface InputProps {
-  name: string;
-  placeholder: string;
-  className: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  error?: string;
-  label?: string;
-  size?: SizeType;
-  prefix?: any;
+    labelText?: string;
+    placeholder?: string;
+    name: string;
+    onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    error?: string;
+    disabled?: boolean;
+    visibilityToggle?: boolean;
+    defaultValue?: string;
+    size?: SizeType;
+    type?: string;
+    value?: any;
+    prefix?: any;
+    className?: string;
 }
 
-export interface PasswordInputProps extends InputProps {
-  visibilityToggle: boolean;
+export const LoginInput: React.FC<InputProps> = ({
+    name,
+    labelText,
+    placeholder = labelText,
+    defaultValue,
+    onChange,
+    error = "",
+    disabled = false,
+    type = "text",
+    size = "large",
+}) => {
+    return (
+        <div className="inputWrapper">
+            {!!labelText && (
+                <label htmlFor={name} className="label">
+                    {labelText}
+                </label>
+            )}
+            <AntInput
+                size={size}
+                type={type}
+                defaultValue={defaultValue}
+                disabled={disabled}
+                name={name}
+                onChange={onChange}
+                placeholder={placeholder}
+                prefix={(<UserOutlined />)}
+            />
+            <div className="validationContainer">{!!error && <span className="validationError">{error}</span>}</div>
+        </div>
+    )
+}
+
+export const PasswordInput: React.FC<InputProps> =  ({
+    name,
+    labelText,
+    placeholder = labelText,
+    defaultValue,
+    onChange,
+    error = "",
+    disabled = false,
+    type = "password",
+    size = "large",
+    visibilityToggle
+}) => {
+    return (
+        <div className="inputWrapper">
+            {!!labelText && (
+                <label htmlFor={name} className="label">
+                    {labelText}
+                </label>
+            )}
+            <AntInput.Password 
+                name={name}
+                type={type}
+                defaultValue={defaultValue}
+                disabled={disabled}
+                size={size}
+                placeholder={placeholder} 
+                onChange={onChange} 
+                onError={() => console.error(error)} 
+                visibilityToggle={visibilityToggle}
+                prefix={(<KeyOutlined />)}
+            />
+            <div className="validationContainer">{!!error && <span className="validationError">{error}</span>}</div>
+        </div>
+    )
 }
 
 export const Input: React.FC<InputProps> = ({
-  name,
-  placeholder,
-  className,
-  onChange,
-  error,
-  label,
-    size= "large",
-}) => {
-  return (
-    <div className="input">
-      <div className="inputContainer">
-        {!!label && (
-          <label htmlFor={name} className="label">{label}</label>
-        )}
-        <AntInput type="text" name={name} placeholder={placeholder} onChange={onChange} />
-      </div>
-      <div className="validationContainer">
-        <p className="validationError">{error ? error : ""}</p>
-      </div>
-    </div>
-  )
-}
-export const PasswordInput: React.FC<PasswordInputProps> = ({
-  name,
-  placeholder,
-  className,
-  onChange,
-  error,
-  visibilityToggle,
-    size= "large",
-}) => {
-  return (
-    <div className="input">
-      <div className="inputContainer">
-        <AntInput.Password type="password" name={name} placeholder={placeholder} className={className} onChange={onChange} visibilityToggle={visibilityToggle} prefix={<KeyOutlined />} />
-      </div>
-      <div className="validationContainer">
-        <p className="validationError">{error ? error : ""}</p>
-      </div>
-    </div>
-  )
-}
-
-export const UserInput: React.FC<InputProps> = ({
     name,
-    placeholder,
-    className,
+    labelText,
+    placeholder = labelText,
+    defaultValue,
     onChange,
-    error,
-    label,
-    size= "large",
+    error = "",
+    disabled = false,
+    type = "text",
+    size = "large",
+    value,
+    prefix,
+    className
 }) => {
     return (
-        <div className="input">
-            <div className="inputContainer">
-                {!!label && (
-                    <label htmlFor={name} className="label">{label}</label>
-                )}
-                <AntInput type="text" name={name} placeholder={placeholder} onChange={onChange} prefix={<UserOutlined />} />
-            </div>
-            <div className="validationContainer">
-                <p className="validationError">{error ? error : ""}</p>
-            </div>
+        <div className="inputWrapper">
+            {!!labelText && (
+                <label htmlFor={name} className="label">
+                    {labelText}
+                </label>
+            )}
+            <AntInput
+                size={size}
+                type={type}
+                defaultValue={defaultValue}
+                disabled={disabled}
+                name={name}
+                onChange={onChange}
+                placeholder={placeholder}
+                value={value}
+                prefix={prefix}
+                className={className}
+            />
+            <div className="validationContainer">{!!error && <span className="validationError">{error}</span>}</div>
         </div>
     )
 }

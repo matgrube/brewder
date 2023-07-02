@@ -1,6 +1,6 @@
 import React from "react";
 import { Story, Meta } from "@storybook/react/types-6-0";
-import { Input, InputProps, PasswordInput, PasswordInputProps, UserInput } from "./Input";
+import { Input, InputProps, PasswordInput, LoginInput } from "./Input";
 
 export default {
   title: "components/Inputs/Input",
@@ -8,8 +8,8 @@ export default {
 } as Meta;
 
 const Template: Story<InputProps> = (args) => <Input {...args} />
-const PasswordTemplate: Story<PasswordInputProps> = (args) => <PasswordInput {...args} />
-const UserTemplate: Story<InputProps> = (args) => <UserInput {...args} />
+const PasswordTemplate: Story<InputProps> = (args) => <PasswordInput {...args} />
+const UserTemplate: Story<InputProps> = (args) => <LoginInput {...args} />
 
 export const Default = Template.bind({});
 export const Password = PasswordTemplate.bind({});

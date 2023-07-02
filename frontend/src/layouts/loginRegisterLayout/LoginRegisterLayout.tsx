@@ -1,7 +1,7 @@
 import React from "react";
-import {LayoutProps} from "../../interfaces/layoutInterfaces/LayoutInterfaces";
+import type { LayoutProps } from "../Interface";
 
-export const LoginRegisterLayout: React.FC<LayoutProps> = ({children, ...props}) => {
+export const LoginRegisterLayout: React.FC<LayoutProps> = ({ children, ...props }) => {
     return (
         <div className="loginRegisterLayout">
             <div className="logoField">
