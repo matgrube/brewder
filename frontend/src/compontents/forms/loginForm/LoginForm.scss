@@ -1,0 +1,12 @@
+.loginForm {
+    @include flexbox($direction: column, $align: center, $justify: center);
+    width: 100%;
+    div {
+        width: 100%;
+        margin-bottom: 12px;
+    }
+    .button {
+        width: 100%;
+        margin-top: 15px;
+    }
+}
