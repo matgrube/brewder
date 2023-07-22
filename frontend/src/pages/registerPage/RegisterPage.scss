@@ -1,4 +1,4 @@
-.loginPage {
+.registerPage {
     @include flexbox($direction: column, $align: center, $justify: center);
     height: 100%;
     padding: 25px 15px;
@@ -8,7 +8,7 @@
     };
     box-sizing: border-box;
     position: relative;
-    .login {
+    .register {
         @include flexbox($direction: column, $align: flex-start, $justify: center);
         height: 100%;
         width: 80%;
@@ -20,7 +20,7 @@
             max-width: 414px;
             padding-top: 0px;
         }
-        .signIntoAccount {
+        .registerAccount {
             @include text-20($font-weight: 500);
             @include small-mobile-and-above {
                 margin-bottom: 40px;
