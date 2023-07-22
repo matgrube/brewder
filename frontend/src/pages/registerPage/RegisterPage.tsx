@@ -16,8 +16,8 @@ export const RegisterPage: React.FC<RouteProps> = () => {
         <LoginRegisterLayout>
             <div className="registerPage">
                 <div className="register">
-                    <h3 className="registerAccount">Register:</h3>
-                    <p className="info">Already have an account?</p>
+                    <h3 className="registerAccount">Sign Up</h3>
+                    <p className="info">Already have an account? <Link to={"/login"}>Sign In!</Link></p>
                     <LoginForm onSubmit={handleSubmit} />
                 </div>
             </div>
